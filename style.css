@@ -49,3 +49,18 @@ body {
     flex-wrap: wrap;
     padding: 20px;
 }
+
+.note {
+    width: 240px;
+    margin: 40px 20px;
+    background-color: #ffca3a;
+    border: 1px solid black;
+}
+
+.note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, .06);
+}
