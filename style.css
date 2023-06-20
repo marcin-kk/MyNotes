@@ -5,5 +5,47 @@
 }
 
 body {
+    height: 100vh;
     font-family: 'Montserrat', sans-serif;
+    background-color: #eef4ed;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    height: 120px;
+}
+
+.icon {
+    margin-right: 10px;
+}
+
+.add {
+    margin-right: 20px;
+}
+
+.menu .icon,
+.note-panel .icon {
+    padding: 12px 25px;
+    background: none;
+    border: 1px solid #999;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color .3s, color .3s;
+}
+
+.menu .icon:hover,
+.note-panel .icon:hover {
+    background-color: #333;
+    color: #ddd;
+}
+
+.note-area {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 20px;
 }
