@@ -1,66 +1,115 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 body {
-    height: 100vh;
-    font-family: 'Montserrat', sans-serif;
-    background-color: #eef4ed;
+	height: 100vh;
+	font-family: "Montserrat", sans-serif;
+	background-color: #eef4ed;
 }
 
 .menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px;
-    height: 120px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 40px;
+	height: 120px;
 }
 
 .icon {
-    margin-right: 10px;
+	margin-right: 10px;
 }
 
 .add {
-    margin-right: 20px;
+	margin-right: 20px;
 }
 
 .menu .icon,
 .note-panel .icon {
-    padding: 12px 25px;
-    background: none;
-    border: 1px solid #999;
-    border-radius: 5px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color .3s, color .3s;
+	padding: 12px 25px;
+	background: none;
+	border: 1px solid #999;
+	border-radius: 5px;
+	font-size: 14px;
+	cursor: pointer;
+	transition: background-color 0.3s, color 0.3s;
 }
 
 .menu .icon:hover,
 .note-panel .icon:hover {
-    background-color: #333;
-    color: #ddd;
+	background-color: #333;
+	color: #ddd;
 }
 
 .note-area {
-    display: flex;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    padding: 20px;
+	display: flex;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	padding: 20px;
 }
 
 .note {
-    width: 240px;
-    margin: 40px 20px;
-    background-color: #ffca3a;
-    border: 1px solid black;
+	width: 240px;
+	margin: 40px 20px;
+	background-color: #ffca3a;
+	border: 1px solid black;
 }
 
 .note-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, .06);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px;
+	background-color: rgba(0, 0, 0, 0.06);
+}
+
+.note-body {
+	padding: 20px 15px;
+	font-size: 14px;
+}
+
+.note-panel {
+	display: flex;
+	/* display: none; */
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 40px 0;
+	width: 600px;
+	background: #fff;
+	box-shadow: 0 0 10px black;
+	border-radius: 5px;
+}
+
+.note-panel h2 {
+	margin-bottom: 20px;
+	text-transform: uppercase;
+}
+
+.note-panel label {
+	margin-bottom: 10px;
+}
+
+.note-panel #text,
+.note-panel #category {
+	margin-bottom: 20px;
+    padding: 10px 20px;
+    width: 100%;
+    max-width: 90%;
+    max-height: 600px;
+    font-size: 16px;
+    border-radius: 5px;
+    box-shadow: 1px solid black;
+}
+
+.note-panel .error {
+    margin-bottom: 20px;
+    color: red;
+    /* visibility: hidden; */
 }
