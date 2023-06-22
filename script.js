@@ -45,4 +45,15 @@ addBtn.addEventListener("click", showPanel)
 saveBtn.addEventListener("click", createNote)
 selectCategories.addEventListener("change", function () {
 	console.dir(selectCategories)
+    console.log(selectCategories.value);
+    console.log(selectCategories.innerText);
+})
+
+noteArea.addEventListener('click', function(e){
+    console.log(e.target);
+    console.dir(e.target);
+    if (e.target.nodeName === "BUTTON") {
+        console.log(e.target.parentElement.parentElement);
+        e.target.parentElement.parentElement.remove()
+    }
 })
