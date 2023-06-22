@@ -37,6 +37,10 @@ body {
 	transition: background-color 0.3s, color 0.3s;
 }
 
+i {
+	margin-right: 5px;
+}
+
 .menu .icon:hover,
 .note-panel .icon:hover {
 	background-color: #333;
@@ -113,3 +117,4 @@ body {
     color: red;
     /* visibility: hidden; */
 }
+
