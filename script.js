@@ -55,25 +55,38 @@ const deleteAll = () => {
 	noteArea.textContent = ""
 }
 
+const deleteSingleNote = (e) => {
+	if (e.target.nodeName === "BUTTON") {
+		console.log(e.target.parentElement.parentElement)
+		e.target.parentElement.parentElement.remove()
+	} else if (e.target.nodeName === "I") {
+		e.target.parentElement.parentElement.parentElement.remove()
+	}
+}
+
 addBtn.addEventListener("click", openPanel)
 saveBtn.addEventListener("click", createNote)
 cancelBtn.addEventListener("click", closePanel)
 deleteAllBtn.addEventListener("click", deleteAll)
+noteArea.addEventListener('click', deleteSingleNote)
 
 //how I figured out how to make a note category its header
-// selectCategories.addEventListener("change", function () {
-// 	console.dir(selectCategories)
-// 	console.log(selectCategories[3].textContent)
-// 	console.log(selectCategories.selectedIndex)
-// 	console.log(selectCategories.value)
-// 	console.log(selectCategories.innerText)
+selectCategories.addEventListener("change", function () {
+	console.dir(selectCategories)
+	console.log(selectCategories[3].textContent)
+	console.log(selectCategories.selectedIndex)
+	console.log(selectCategories.value)
+	console.log(selectCategories.innerText)
+})
+
+// noteArea.addEventListener("click", function (e) {
+// 	console.log(e.target)
+// 	console.dir(e.target)
+// 	if (e.target.nodeName === "BUTTON") {
+// 		console.log(e.target.parentElement.parentElement)
+// 		e.target.parentElement.parentElement.remove()
+// 	} else if (e.target.nodeName === "I") {
+// 		e.target.parentElement.parentElement.parentElement.remove()
+// 	}
 // })
 
-noteArea.addEventListener("click", function (e) {
-	console.log(e.target)
-	console.dir(e.target)
-	if (e.target.nodeName === "BUTTON") {
-		console.log(e.target.parentElement.parentElement)
-		e.target.parentElement.parentElement.remove()
-	}
-})
