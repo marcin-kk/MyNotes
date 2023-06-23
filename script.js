@@ -24,10 +24,12 @@ const applyColor = note => {
 const createNote = () => {
 	if (selectCategories.value == !0 && textArea.value !== "") {
 		console.log("ok")
+		const index = selectCategories.selectedIndex
+		const selectedText = selectCategories[index].textContent
 		const newNote = document.createElement("div")
 		newNote.classList.add("note")
 		newNote.innerHTML = `<div class="note-header">
-        <h3 class="note-title">Note #${noteNumber}</h3>
+        <h3 class="note-title">${selectedText}</h3>
         <button class="delete-note"><i class="fas fa-times icon"></i></button>
     </div>
     <div class="note-body">${textArea.value}</div>`
@@ -45,6 +47,8 @@ addBtn.addEventListener("click", showPanel)
 saveBtn.addEventListener("click", createNote)
 selectCategories.addEventListener("change", function () {
 	console.dir(selectCategories)
+	console.log(selectCategories[3].textContent); // other
+	console.log(selectCategories.selectedIndex); //3
     console.log(selectCategories.value);
     console.log(selectCategories.innerText);
 })
