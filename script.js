@@ -5,9 +5,11 @@ const selectCategories = document.querySelector("#category")
 const textArea = document.querySelector("#text")
 const panelError = document.querySelector(".error")
 const noteArea = document.querySelector(".note-area")
+const cancelBtn = document.querySelector(".cancel")
+const deleteAllBtn = document.querySelector(".delete-all")
 let noteNumber = 1
 
-const showPanel = () => {
+const openPanel = () => {
 	notePanel.style.display = "flex"
 }
 
@@ -35,29 +37,43 @@ const createNote = () => {
     <div class="note-body">${textArea.value}</div>`
 		applyColor(newNote)
 		noteArea.append(newNote)
-		panelError.style.visibility = "hidden"
-		notePanel.style.display = "none"
+		closePanel()
 		noteNumber++
 	} else {
 		panelError.style.visibility = "visible"
 	}
 }
 
-addBtn.addEventListener("click", showPanel)
-saveBtn.addEventListener("click", createNote)
-selectCategories.addEventListener("change", function () {
-	console.dir(selectCategories)
-	console.log(selectCategories[3].textContent); // other
-	console.log(selectCategories.selectedIndex); //3
-    console.log(selectCategories.value);
-    console.log(selectCategories.innerText);
-})
+const closePanel = () => {
+	panelError.style.visibility = "hidden"
+	notePanel.style.display = "none"
+	textArea.value = ""
+	selectCategories.selectedIndex = 0
+}
 
-noteArea.addEventListener('click', function(e){
-    console.log(e.target);
-    console.dir(e.target);
-    if (e.target.nodeName === "BUTTON") {
-        console.log(e.target.parentElement.parentElement);
-        e.target.parentElement.parentElement.remove()
-    }
+const deleteAll = () => {
+	noteArea.textContent = ""
+}
+
+addBtn.addEventListener("click", openPanel)
+saveBtn.addEventListener("click", createNote)
+cancelBtn.addEventListener("click", closePanel)
+deleteAllBtn.addEventListener("click", deleteAll)
+
+//how I figured out how to make a note category its header
+// selectCategories.addEventListener("change", function () {
+// 	console.dir(selectCategories)
+// 	console.log(selectCategories[3].textContent)
+// 	console.log(selectCategories.selectedIndex)
+// 	console.log(selectCategories.value)
+// 	console.log(selectCategories.innerText)
+// })
+
+noteArea.addEventListener("click", function (e) {
+	console.log(e.target)
+	console.dir(e.target)
+	if (e.target.nodeName === "BUTTON") {
+		console.log(e.target.parentElement.parentElement)
+		e.target.parentElement.parentElement.remove()
+	}
 })
